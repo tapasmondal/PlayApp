@@ -1,0 +1,158 @@
+<ion-header>
+  <ion-toolbar style="text-align: center;">
+    <ion-title>
+       Points Summary
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+         <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      
+     
+      <ion-grid>
+    <ion-row center style="text-align: center; vertical-align: middle;font-size: 15px; color:#20253B;">
+      
+      <ion-col>
+      <ion-icon name="person" ></ion-icon>
+      </ion-col>
+      <ion-col>
+        <!-- <button ion-button color="rc">{{teamATitle}}</button>-->
+         <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamAId == 1">
+            <img src="assets/img/dd.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamAId == 2">
+            <img src="assets/img/rc.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamAId == 3">
+            <img src="assets/img/kk.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamAId == 4">
+            <img src="assets/img/mi.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamAId == 5">
+            <img src="assets/img/kx.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamAId == 6">
+            <img src="assets/img/sh.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamAId == 7">
+            <img src="assets/img/gl.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamAId == 8">
+            <img src="assets/img/pu.png">
+          </ion-avatar>
+      </ion-col>
+      <ion-col>
+         <!--<button ion-button color="sh">{{teamBTitle}}</button>-->
+
+           <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamBId == 1">
+            <img src="assets/img/dd.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamBId == 2">
+            <img src="assets/img/rc.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamBId == 3">
+            <img src="assets/img/kk.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamBId == 4">
+            <img src="assets/img/mi.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamBId == 5">
+            <img src="assets/img/kx.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamBId == 6">
+            <img src="assets/img/sh.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamBId == 7">
+            <img src="assets/img/gl.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="teamBId == 8">
+            <img src="assets/img/pu.png">
+          </ion-avatar>
+
+      </ion-col>
+      <ion-col >
+         <ion-icon name="trophy" ></ion-icon>
+      </ion-col>
+       <ion-col >
+          <ion-icon name="medal" ></ion-icon>
+      </ion-col>
+      <ion-col >
+          <ion-icon name="pie" ></ion-icon>
+      </ion-col>
+     
+      
+    </ion-row>
+     <ion-row center *ngFor="let personTournamentDashboard of personGameScheduleList;let i = index" style="text-align: center; vertical-align: middle;font-size: 15px;" 
+     [ngClass]="{odd: i%2==0, even: i%2==1,fontStyle:personTournamentDashboard.personId==personId}">
+      
+      <ion-col>
+        {{personTournamentDashboard.personId}}
+      </ion-col>
+      <ion-col>
+        {{personTournamentDashboard.teamAValue}}
+      </ion-col>
+      <ion-col>
+       {{personTournamentDashboard.teamBValue}}
+      </ion-col>
+      
+      <ion-col *ngIf="personTournamentDashboard.status == 'COM'">
+          
+           <ion-avatar class="profilepicsizeSmall" item-right *ngIf="personTournamentDashboard.winerId == 1">
+            <img src="assets/img/dd.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="personTournamentDashboard.winerId == 2">
+            <img src="assets/img/rc.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="personTournamentDashboard.winerId == 3">
+            <img src="assets/img/kk.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="personTournamentDashboard.winerId == 4">
+            <img src="assets/img/mi.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="personTournamentDashboard.winerId == 5">
+            <img src="assets/img/kx.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="personTournamentDashboard.winerId == 6">
+            <img src="assets/img/sh.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="personTournamentDashboard.winerId == 7">
+            <img src="assets/img/gl.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeSmall" item-right *ngIf="personTournamentDashboard.winerId == 8">
+            <img src="assets/img/pu.png">
+          </ion-avatar>
+      </ion-col>
+        <ion-col *ngIf="personTournamentDashboard.status == 'DRW' ">
+         D
+       </ion-col>
+       <ion-col *ngIf="personTournamentDashboard.status == 'CAN' ">
+         C
+       </ion-col>
+       <ion-col *ngIf="personTournamentDashboard.status != 'SCH'">
+          {{personTournamentDashboard.points}}
+      </ion-col>
+       <ion-col *ngIf="personTournamentDashboard.status != 'SCH'">
+          {{personTournamentDashboard.result[0]}}
+      </ion-col>
+
+      <ion-col *ngIf="personTournamentDashboard.status == 'SCH'">
+          
+      </ion-col>
+      <ion-col *ngIf="personTournamentDashboard.status == 'SCH'">
+          
+      </ion-col>
+        <ion-col *ngIf="personTournamentDashboard.status == 'SCH'">
+          
+      </ion-col>
+    </ion-row>
+     
+  </ion-grid>
+  </ion-list>
+</ion-content>

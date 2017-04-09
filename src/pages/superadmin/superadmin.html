@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar style="text-align: center;">
+    <button  ion-button menuToggle>
+      <ion-icon name="menu" color="white"></ion-icon>
+      <!--<img src="assets/img/Menu.png" height="28" width="24">-->
+    </button>
+     <ion-title text-center  showWhen="ios" >Player Details Update </ion-title>
+    <ion-title text-center  showWhen="android"  style="margin-left: -63px;">Player Details Update </ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content padding class="content-background">
+ 
+   
+
+<ion-list>
+  <ion-item>
+    <ion-label>Select Player</ion-label>
+    <ion-select [(ngModel)]="personId" (ionChange)="fetchPersonDetails()">
+      <ion-option *ngFor="let person of personList" [value]="person.personId">{{person.title}}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
+<ion-card   *ngIf="personInfo.personId != null">
+ <ion-card-header  class="card-header-md-Custome">
+
+   <ion-grid>
+  <ion-row justify-content-center style="text-align: center; vertical-align: middle;font-size: 20px;">
+    <ion-col style="text-align: left">
+       <ion-icon name="person"></ion-icon>
+    </ion-col>
+    <ion-col style="font-size: 20px;">
+               Details
+    </ion-col>
+     <ion-col style="font-size: 15px;">
+              &nbsp;
+    </ion-col>
+  </ion-row>
+   </ion-grid>
+  
+ </ion-card-header>
+
+<ion-card-content>
+ <ion-grid>
+   <ion-row center style="text-align: left;vertical-align: middle;">
+    <ion-col class="card-body-f11" tyle="font-size:20px">
+      Player Id
+    </ion-col>
+    <ion-col >
+       {{personInfo.personId}}
+    </ion-col>
+  </ion-row>
+   <ion-row center style="text-align: left;vertical-align: middle;">
+    <ion-col class="card-body-f11" tyle="font-size:20px">
+      Player Title
+    </ion-col>
+    <ion-col>
+       {{personInfo.personTitle}}
+    </ion-col>
+  </ion-row>
+  <ion-row center style="text-align: left;vertical-align: middle;">
+    <ion-col class="card-body-f11" tyle="font-size:20px">
+      Participate 
+    </ion-col>
+    <ion-col>
+      <ion-toggle   [(ngModel)]="personInfo.participate"></ion-toggle>
+    </ion-col>
+  </ion-row>
+  <ion-row center style="text-align: left;vertical-align: middle;">
+    <ion-col class="card-body-f11" tyle="font-size:20px">
+      Current Value
+    </ion-col>
+    <ion-col>
+      {{personInfo.perviousBalance}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row center style="text-align: left;vertical-align: middle;">
+    <ion-col class="card-body-f11" tyle="font-size:20px">
+      Add Value
+    </ion-col>
+    <ion-col>
+      <ion-badge item-right style="font-size:20px">{{personInfo.balance}}</ion-badge>
+     </ion-col>
+  </ion-row>
+    <!-- <ion-input type="text"  [(ngModel)]="personInfo.balance"value=""></ion-input>-->
+</ion-grid>
+<ion-list style="padding-top: 5px;">
+<ion-item>
+        <ion-range min="0" max="500" step="10" [(ngModel)]="personInfo.balance" color="secondary">
+      <ion-label range-left>0</ion-label>
+      <ion-label range-right>500</ion-label>
+    </ion-range>
+</ion-item>
+  </ion-list>   
+
+
+ <ion-grid>
+    
+  <ion-row center style="text-align: left;vertical-align: middle;">
+    <ion-col>
+    </ion-col>
+    <ion-col>
+        <button ion-button color="buttonColor1" class="button-style" block (click)="updatePersonData()" >Update</button>
+ 
+    </ion-col>
+  </ion-row>
+ </ion-grid>
+
+</ion-card-content>
+</ion-card>
+
+</ion-content>

@@ -1,0 +1,21 @@
+page-stat {
+
+  .odd {
+        //background: color($colors, grey);
+       background:  #E8E8ED;
+        opacity: 0.85;
+        color: #242B30;
+    }
+
+    .even {
+        background:  #F9F9FB;
+        opacity: 0.95;
+        color: #242B30;
+    }
+
+    .fontStyle{
+        color:#E8D122;
+        background-color: rgba(13, 17, 108, 0.7);
+        
+    }
+}

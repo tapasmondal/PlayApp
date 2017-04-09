@@ -1,0 +1,7 @@
+<ion-tabs >
+  <ion-tab [root]="tab1Root" tabTitle="" tabIcon="analytics" [rootParams]="loggedInUser" ></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="" tabIcon="thumbs-up" [rootParams]="loggedInUser"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="" tabIcon="medal"[rootParams]="loggedInUser"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="" tabIcon="cog" [rootParams]="loggedInUser" *ngIf="loggedInUser.admin == true" ></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="" tabIcon="man" [rootParams]="loggedInUser" *ngIf="loggedInUser.admin == true" ></ion-tab>
+</ion-tabs>

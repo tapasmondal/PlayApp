@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar style="text-align: center;">
+    <button  ion-button menuToggle>
+      <ion-icon name="menu" color="white"></ion-icon>
+      <!--<img src="assets/img/Menu.png" height="28" width="24">-->
+    </button>
+    <ion-title text-center  showWhen="ios" >Leaderboard </ion-title>
+    <ion-title text-center  showWhen="android"  style="margin-left: -63px;">Leaderboard </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="content-background">
+
+  <ion-grid>
+    <ion-row style="text-align: center; vertical-align: middle;font-size: 20px; color:white;">
+      <ion-col>
+      <ion-icon name="person"></ion-icon>
+      </ion-col>
+      <ion-col>
+         <ion-icon name="trophy"></ion-icon>
+      </ion-col>
+      <ion-col>
+         <ion-icon name="thumbs-up"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="thumbs-down"></ion-icon>
+      </ion-col>
+      <ion-col>
+          <ion-icon name="pie"></ion-icon>
+      </ion-col>
+      <ion-col>
+          <ion-icon name="stats"></ion-icon>
+      </ion-col>
+    </ion-row>
+     <ion-row *ngFor="let personTournamentDashboard of personTournamentDashboardList;let i = index" style="text-align: center; vertical-align: middle;font-size: 15px;" 
+     [ngClass]="{odd: i%2==0, even: i%2==1,fontStyle:personTournamentDashboard.personId==loggedInUser}">
+      <ion-col>
+        {{personTournamentDashboard.personId}}
+      </ion-col>
+      <ion-col>
+        {{personTournamentDashboard.ranking}}
+      </ion-col>
+      <ion-col>
+       {{personTournamentDashboard.win}}
+      </ion-col>
+      <ion-col>
+       {{personTournamentDashboard.loss}}
+      </ion-col>
+      <ion-col>
+     {{personTournamentDashboard.totalPoints}}
+      </ion-col>
+       <ion-col>
+          <ion-icon  name="ios-arrow-dropright-circle" (click)="openNavDetailsPage(personTournamentDashboard)"></ion-icon>
+
+      <!-- <button ion-button clear icon-only style="margin-top: -10px" >
+        <span style="font-size: 15px;color:#434D98"><ion-icon name="ios-arrow-dropright-circle" (click)="openNavDetailsPage(1)"></ion-icon></span>
+      </button>-->
+      </ion-col>
+    </ion-row>
+     
+  </ion-grid>
+</ion-content>

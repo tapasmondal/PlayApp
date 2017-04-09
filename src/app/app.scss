@@ -1,0 +1,403 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.transparent-bg {
+	background:transparent;
+}
+
+.loyalty-points-grid {
+	border-top: 0.01em solid rgba(255,255,255, 0.2) !important;
+   border-bottom: 0.01em solid rgba(255,255,255, 0.2) !important;
+   margin:auto;
+	text-align:center;
+   padding: 10px;
+   background: color($colors, white);
+   opacity: 0.70;
+   
+}
+
+.points {
+	font-size: 1.6em;
+	font-weight:600;
+	display:block;
+	margin:auto;
+	text-align:center;
+}
+.menu-left {
+	width:100%;
+  height:100%;
+  height:100%;
+  background: #20253B;
+   // background:color($colors, primary); 
+}
+
+.menu-header {
+	color: color($colors, white);
+	background: color($colors, primary);
+}
+
+.card-background{
+
+ //background-color: rgba(0, 0, 0, 0.7);
+  //background-color: rgba(14, 70, 44, 0.7);
+  background-color: rgba(13, 17, 108, 0.4);
+}
+
+.card-background-team{
+
+ //background-color: rgba(0, 0, 0, 0.7);
+  //background-color: rgba(14, 70, 44, 0.7);
+  background-color: rgba(76, 94, 124, 0.6);
+  
+}
+
+.card-background_2{
+
+ //background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(13, 17, 108, 0.7);
+}
+
+.toolbar-background {
+    //background-color: #50607A;
+    //background-color: #273074;
+    //background-color: #494F53;
+    background: #20253B;
+}
+.tabs-md .tabbar ,.tabs-ios .tabbar {
+    //background: #494F53;
+    background: #20253B;
+}
+.toast-message{
+    background-color: #20253B;
+}
+.content-background{
+
+     background: url("../assets/img/109.jpg") no-repeat center;
+     background-size: 100% 100%;
+}
+.content-background-Home{
+
+      background: url("../assets/img/111.jpg") no-repeat center;
+      background-size: 100% 100%;
+      //background-size: 100% 100%;
+     //background: #EAEFF3;
+    
+}
+.content-background2{
+
+    // background: url("../assets/img/105.jpg") no-repeat center;
+    background-color: #EFEFEF;
+}
+.content-background-2{
+
+ background-color: #EAEFF3;
+}
+
+.toolbar-title-md{
+    color:#E8D122 !important;
+    font-size: 1.5rem !important;
+}
+
+.toolbar-title-ios{
+    color:#E8D122 !important;
+    font-size: 1.5rem !important;
+}
+
+.popup-head {
+  background-color : #273074;
+}
+
+.card-header-md-Custome{
+ padding-right: 10px;
+ padding-left: 10px;
+ padding-top:3px;
+ padding-bottom: 3px;
+
+ background-color: #D2D6D9; 
+ color: #494F53;
+}
+
+ .textColorTypeSecondary{
+      color: #6E767C;
+  }
+  .textColorTypeHeader{
+      color: #242B30;
+  }
+  .textColorTypePrimary{
+      color: #494F53;
+  }
+
+  .textColorTypePrimaryT{
+      color: white;
+  }
+   .textColorTypeSecondaryT{
+      color: white;
+  }
+
+  
+
+ .card-body-f1 {
+    font-size: 1.2em;
+    color: #6E767C;
+  }
+
+   .card-body-f11 {
+    font-size: 1.0em;
+    color: #6E767C;
+  }
+  .card-body-f1-T {
+    font-size: 1.2em;
+    color: white;
+  }
+
+.card-subtitle1 {
+    font-size: 4.0em;
+
+    color: white;
+  }
+
+
+
+  .card-body-f2 {
+    font-size: 1.2em;
+    color: #494F53;
+  }
+
+    .card-body-f2-T{
+    font-size: 1.2em;
+    color: white;
+  }
+
+  .grid-closeToTopGridStyle{
+      padding-top: 0px;
+      margin: -5px;
+  }
+
+.auth-bg {
+      
+      background: url("../assets/img/109.jpg") no-repeat center;
+      //background-color:#434D98;
+      background-size: 100% 100%;
+
+     .scroll-content {
+    display: flex !important;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .auth-content {
+      min-width: 80%;
+      
+      
+    }
+   }
+}
+    
+.clear-bg{
+    background: transparent;
+}
+
+.input-color{
+    color: white;
+    font-size: 1.3rem;
+}
+
+.button-style{
+    text-transform: none;
+}
+
+
+.font-medium{
+    font-size:1.4rem;
+}
+
+.font-small{
+    font-size: 1.2rem;
+}
+
+.font-header {
+    font-family: Helvetica ;
+    font-size: 4.4rem;
+}
+
+.font-subheader {
+    font-family: Helvetica;
+    font-size: 1.5rem;
+}
+
+@font-face {
+    font-family: winter;
+    src: url("../assets/font/Winter.ttf");
+}
+
+.text-input::-moz-placeholder {
+  color: white;
+}
+
+.text-input:-ms-input-placeholder {
+  color: white;
+}
+
+.text-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: white;
+}
+
+.label-broder{
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius:15px; 
+}
+
+.no-padding{
+    padding-left: 0px;
+}
+
+.md ion-list > .item:last-child, 
+.md ion-list > .item-wrapper:last-child .item,
+.wp ion-list > .item:last-child, 
+.wp ion-list > .item-wrapper:last-child .item,
+.ios ion-list > .item:last-child, 
+.ios ion-list > .item-wrapper:last-child .item {
+    padding-left: 0px;
+}
+
+
+.circleBase {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    width: 220px;
+    height: 220px;
+   // background:#EAEFF3;
+    background: transparent;
+    border: 3px solid #E8D122;
+    margin: 0 auto;
+    margin-top: 10px;
+    
+}
+
+
+.ion-card-center {
+    position: relative;
+    text-align: center;
+  }
+
+
+  .card-title-green {
+    font-size: 2.0em;
+    font-weight: bold;
+    color: #0EB266;
+  }
+
+   .card-title-red {
+    font-size: 2.0em;
+    font-weight: bold;
+    color: #D5443C;
+  }
+
+  
+  
+ 
+
+  .card-subtitle2 {
+    font-size: 1.0em;
+  }
+
+// sysle related changes for .card-subtitle1.card-header-md
+// sysle related changes for .card-subtitle1.card-header-md
+
+.card-header-md,.card-header-ios{
+ padding-right: 10px;
+ padding-left: 10px;
+ padding-top:2px;
+ padding-bottom: 2px;
+}
+
+
+
+
+
+
+.toolbar-md,.toolbar-ios{
+    min-height: 40px;
+}
+
+
+
+
+
+.tabs-md .tab-button-icon,.tabs-ios .tab-button-icon {
+    color: #f4f4f4;
+}
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon,.tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+
+    color: #f3cd58;
+}
+
+.bar-button-default-md{
+
+    color:white;
+}
+
+.input-cover {
+	position: static;
+}
+
+.profilepicsizeLarge  {
+    width: 100% !important;  
+    height : 100% !important;  
+    max-width: 70px !important;  //any size
+    max-height: 70px !important; //any size 
+     margin: 0 auto;
+}
+
+.profilepicsize  {
+    width: 100% !important;  
+    height : 100% !important;  
+    max-width: 50px !important;  //any size
+    max-height: 50px !important; //any size 
+     margin: 0 auto;
+}
+
+.profilepicsizeSmall  {
+    width: 100% !important;  
+    height : 100% !important;  
+    max-width: 30px !important;  //any size
+    max-height: 30px !important; //any size 
+     margin: 0 auto;
+}
+
+.tabs-md .tab-button,.tabs-ios .tab-button {
+    color:white;
+}
+
+.tabs-md .tab-button[aria-selected=true],.tabs-ios .tab-button[aria-selected=true] {
+    color:#f3cd58
+}
+
+.location {
+    font-weight: 600;
+    font-size: 1em;
+    color: #434D98;
+
+}
+
+.schedule {
+    font-weight: 400;
+    font-size: 0.9em
+}

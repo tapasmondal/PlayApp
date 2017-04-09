@@ -1,0 +1,67 @@
+
+<ion-menu [content]="content">   
+  <ion-content class="menu-left">
+    <div>
+    <!-- User profile -->
+    <div text-center>
+      <a menuClose>
+        
+        <div class="staff-picture" style="margin-top:20px;">            
+            <img class="circle" style="width:80px; height:80px" src="assets/img/user.png" alt=""/>
+        </div>
+        <span color="white" >Title:{{loggedInUser.personViewTitle}}</span>
+        <p>
+        <span color="white">Short identifier:{{loggedInUser.personId}}</span></p>
+        <p>
+        <span color="white">Token:{{loggedInUser.token}}</span>
+        </p>
+        <p>
+        <span color="white" *ngIf="loggedInUser.canParticipate == true" style="color:greenyellow"> Voting Status:Yes</span>
+        <span color="white" *ngIf="loggedInUser.canParticipate == false" style="color:red"> Voting Status:No</span>
+ 
+        </p>
+         <p>
+        <span color="white" style=" font-size:  2rem;">Value:{{loggedInUser.balance}}</span>
+        </p>
+     
+   
+              <ion-avatar class="profilepicsizeLarge" item-right *ngIf="loggedInUser.teamId == 1" >
+            <img src="assets/img/dd.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeLarge" item-right *ngIf="loggedInUser.teamId == 2" >
+            <img src="assets/img/rc.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeLarge" item-right *ngIf="loggedInUser.teamId == 3" >
+            <img src="assets/img/kk.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeLarge" item-right *ngIf="loggedInUser.teamId == 4" >
+            <img src="assets/img/mi.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeLarge" item-right *ngIf="loggedInUser.teamId == 5" >
+            <img src="assets/img/kx.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeLarge" item-right *ngIf="loggedInUser.teamId == 6" >
+            <img src="assets/img/sh.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeLarge" item-right *ngIf="loggedInUser.teamId == 7" >
+            <img src="assets/img/gl.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsizeLarge" item-right *ngIf="loggedInUser.teamId == 8" >
+            <img src="assets/img/pu.png">
+          </ion-avatar>
+   
+     </a>
+    </div>
+    <!-- 
+     <ion-list no-lines>
+      <button ion-item detail-none menuClose *ngFor="let page of menuItems" (click)="openPage(page)" class="transparent-bg thin-border">
+        <ion-icon item-left name="{{ page.icon }}" color="white"></ion-icon>
+        {{ page.title }}
+        <ion-badge color="danger" item-right *ngIf="page.count">{{ page.count }}</ion-badge>
+      </button>
+    </ion-list>-->
+    </div>
+  </ion-content>
+
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

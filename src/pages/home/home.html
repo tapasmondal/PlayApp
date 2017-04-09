@@ -1,0 +1,272 @@
+<ion-header >
+  <ion-navbar   text-center >
+    <button  ion-button menuToggle>
+      <ion-icon name="menu" color="white"></ion-icon>
+      <!--<img src="assets/img/Menu.png" height="28" width="24">-->
+    </button>
+    <ion-title text-center  showWhen="ios" >Dashboard </ion-title>
+    <ion-title text-center  showWhen="android"  style="margin-left: -63px;">Dashboard </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-background-Home">
+
+
+  <!-- 1st card 
+  <ion-card class="ion-card-center" class="content-background2">
+    <ion-card-header style="text-align: center; color: white;">
+      {{personDashboard.personTitle}}
+    </ion-card-header>
+
+
+    <ion-card-content style="text-align: center;">-->
+
+
+      <div class="circleBase" [ngClass]="circleBorder">
+
+
+        <ion-grid>
+
+          <ion-row>
+            <ion-col text-center>
+              <p>&nbsp;
+                </p>
+              <p><span class="card-subtitle1">{{personDashboard.totalPoints}}</span>
+              </p>
+
+              <span class="card-subtitle2 textColorTypePrimaryT">Rank {{personDashboard.ranking}}</span>
+             <!-- <p>
+
+                <span class="card-title-red">{{personDashboard.loss}}</span>
+              </p>-->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+
+      <ion-grid >
+        <ion-row center  style="text-align: center; font-size: 20px;" class=" textColorTypePrimaryT">
+          
+           <ion-col  >
+           </ion-col>
+          <ion-col  >
+
+            {{personDashboard.gamePlayed}}
+
+          </ion-col>
+          <ion-col class="item-text-wrap" >
+            {{personDashboard.win}}
+
+          </ion-col>
+          <ion-col >
+
+           {{personDashboard.loss}}
+
+          </ion-col>
+           <ion-col  >
+           </ion-col>
+        </ion-row>
+
+      </ion-grid>
+      <ion-grid >
+        <ion-row center  style="text-align: center; font-size: 12px;" class="textColorTypeSecondaryT">
+           <ion-col  >
+           </ion-col>
+          <ion-col  >
+
+             Played
+
+          </ion-col>
+          <ion-col class="item-text-wrap" >
+            Win
+
+          </ion-col>
+          <ion-col >
+
+           Loss
+
+          </ion-col>
+           <ion-col  >
+           </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+<!--
+    </ion-card-content>
+  </ion-card>-->
+
+  <!-- 2nd card -->
+  <ion-card *ngFor="let personGameDashboard of personGameDashboardList;let i = index" class="card-background"  >
+    <ion-card-header  class="card-header-md-Custome " (click)="openVoteTab(personGameDashboard)" >
+
+
+
+      <ion-grid>
+        <ion-row center justify-content-center style="text-align: center; vertical-align: middle;font-size: 15px;">
+          <ion-col style="text-align: left">
+
+
+            <ion-icon *ngIf="personGameDashboard.status == 'COM'" name="megaphone"></ion-icon>
+            <ion-icon *ngIf="personGameDashboard.status != 'COM'" name="pulse"></ion-icon>
+
+          </ion-col>
+          <ion-col class="item-text-wrap" style="font-size: 15px;">
+            <span class="location">{{personGameDashboard.location}}</span>, 
+            <span class="schedule">{{personGameDashboard.schedule| date:' dd MMM yyyy H:mm a'}}</span>
+
+          </ion-col>
+          <ion-col style="text-align: right;">
+
+            <ion-icon *ngIf="personGameDashboard.lockStatus == true" name="lock"></ion-icon>
+            <ion-icon *ngIf="personGameDashboard.lockStatus == false" name="unlock"></ion-icon>
+
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+
+    </ion-card-header>
+    <ion-card-content class="">
+
+      <ion-grid>
+
+
+        <ion-row center style="text-align: center; vertical-align: middle;font-size: 15px;">
+          <ion-col class="card-body-f1-T">
+
+            <!--<ion-badge item-right style="font-size:25px">{{personGameDashboard.gameTournamentSequenceNo}}</ion-badge>-->
+           #{{personGameDashboard.gameTournamentSequenceNo}}
+          </ion-col>
+         <ion-col >
+           <!-- <button ion-button  [ngStyle]="{'background': personGameDashboard.teamAColor}">{{personGameDashboard.teamATitle}}</button>
+           -->
+           <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamAId == 1" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamAId)">
+            <img src="assets/img/dd.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamAId == 2" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamAId)">
+            <img src="assets/img/rc.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamAId == 3" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamAId)">
+            <img src="assets/img/kk.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamAId == 4" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamAId)">
+            <img src="assets/img/mi.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamAId == 5" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamAId)">
+            <img src="assets/img/kx.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamAId == 6" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamAId)">
+            <img src="assets/img/sh.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamAId == 7" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamAId)">
+            <img src="assets/img/gl.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamAId == 8" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamAId)">
+            <img src="assets/img/pu.png">
+          </ion-avatar>
+
+
+          </ion-col>
+          <ion-col>
+           <!-- <button ion-button [ngStyle]="{'background': personGameDashboard.teamBColor}">{{personGameDashboard.teamBTitle}}</button>
+          -->
+         
+            <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamBId == 1" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamBId)">
+            <img src="assets/img/dd.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamBId == 2" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamBId)">
+            <img src="assets/img/rc.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamBId == 3" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamBId)">
+            <img src="assets/img/kk.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamBId == 4" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamBId)">
+            <img src="assets/img/mi.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamBId == 5" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamBId)">
+            <img src="assets/img/kx.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamBId == 6" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamBId)">
+            <img src="assets/img/sh.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamBId == 7" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamBId)">
+            <img src="assets/img/gl.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameDashboard.teamBId == 8" (click)="openTeamModal(personGameDashboard.personId,personGameDashboard.tournamentId,personGameDashboard.teamBId)">
+            <img src="assets/img/pu.png">
+          </ion-avatar>
+
+
+
+          </ion-col>
+          <ion-col class="card-body-f2-T" *ngIf="personGameDashboard.lockStatus == true" name="lock">
+            <ion-icon name="pie" style="font-size: 30px; color: #f3cd58" (click)="openModal(personGameDashboard.gameNo,
+            personGameDashboard.personId,
+            personGameDashboard.tournamentId,
+            personGameDashboard.teamAId,
+            personGameDashboard.teamBId)"></ion-icon>
+          </ion-col>
+
+           <ion-col class="card-body-f2-T" *ngIf="personGameDashboard.lockStatus == false" name="lock">
+            <ion-icon name="pie" style="font-size: 30px;"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+        <ion-row center style="text-align: center; vertical-align: middle;font-size: 15px;">
+          <ion-col class="card-body-f1-T">
+            <ion-icon name="person"></ion-icon>
+          </ion-col>
+          
+          <ion-col class="card-body-f2-T">
+            {{personGameDashboard.teamAValue}}
+          </ion-col>
+          <ion-col class="card-body-f2-T">
+            {{personGameDashboard.teamBValue}}
+          </ion-col>
+          <ion-col class="card-body-f2-T">
+            {{personGameDashboard.teamAValue+personGameDashboard.teamBValue}}
+          </ion-col>
+        </ion-row>
+
+       
+        <ion-row center style="text-align: center;vertical-align: middle;font-size: 15px;">
+          <ion-col class="card-body-f1-T">
+            <ion-icon name="people"></ion-icon>
+          </ion-col>
+          
+          <ion-col class="card-body-f2-T">
+            <span *ngIf="personGameDashboard.lockStatus == true"> {{personGameDashboard.totalTeamAValue}}</span>
+          </ion-col>
+          <ion-col class="card-body-f2-T">
+            <span *ngIf="personGameDashboard.lockStatus == true">{{personGameDashboard.totalTeamBValue}}</span>
+          </ion-col>
+
+          <ion-col class="card-body-f2-T">
+            {{personGameDashboard.totalTeamAValue+personGameDashboard.totalTeamBValue}}
+          </ion-col>
+          
+        </ion-row>
+
+
+
+      </ion-grid>
+
+
+
+
+      <ion-grid *ngIf="personGameDashboard.lockStatus == false">
+       <timer #timer timeInSeconds="{{(personGameDashboard.lockschedule-currentTime)/1000}}" ></timer>
+       <!--   <timer #timer timeInSeconds="15" ></timer> -->
+
+      </ion-grid>
+
+    
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content>

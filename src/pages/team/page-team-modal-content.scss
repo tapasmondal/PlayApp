@@ -1,0 +1,52 @@
+page-team-modal-content {
+
+
+  .odd {
+        //background: color($colors, grey);
+       background:  #E8E8ED;
+        opacity: 0.85;
+    }
+
+    .even {
+        background:  #F9F9FB;
+        opacity: 0.95;
+    }
+
+.bgdefault{
+
+    border-color: #20253B;
+ }
+
+.rc{
+
+    background-color: color($colors, rc);
+ }
+ .gr{
+
+    background-color: color($colors, gr);
+ }
+ .kx{
+
+    background-color: color($colors, kx);
+ }
+ .kk{
+
+    background-color: color($colors, kk);
+ }
+ .mi{
+
+    background-color: color($colors, mi);
+ }
+ .pu{
+
+    background-color: color($colors, pu);
+ }
+ .dd{
+
+    background-color: color($colors, dd);
+ }
+ .sh{
+
+    background-color: color($colors, sh);
+ }
+}

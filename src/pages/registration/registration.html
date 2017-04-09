@@ -1,0 +1,93 @@
+<ion-content class=" auth-bg">
+<div class="auth-content">
+
+
+<div padding text-center style="margin-top: 100px">
+<p color="white" style="font-size: 45px;"><ion-icon name="analytics" ></ion-icon></p>
+<p color="white" style="font-size: 25px; "> Sign Up</p>
+
+</div>
+
+
+
+
+<ion-list >
+   <!-- Invite -->
+    <ion-item class="clear-bg no-padding">
+        <ion-label  class="clear-bg " style="color:white" no-lines>
+            *
+            
+        </ion-label>
+        <ion-input class="input-color" [(ngModel)]="user.token" type="text" value="" placeholder="Invite Code"></ion-input>
+    </ion-item> 
+<!-- user Name-->
+    <ion-item class="clear-bg no-padding" >
+        <ion-label  class="clear-bg " style="color:white" no-lines>
+            *
+            
+        </ion-label>
+        <ion-input class="input-color" [(ngModel)]="user.userName" type="text" value="" placeholder="Username"></ion-input>
+    </ion-item>
+<!-- Password-->
+    <ion-item class="clear-bg no-padding">
+        <ion-label  class="clear-bg  " style="color:white">
+            *
+   </ion-label>
+    <ion-input [(ngModel)]="user.password" type="password" value="" class="input-color" placeholder="Password"></ion-input>
+    </ion-item>
+
+<!-- Password-->
+    <ion-item class="clear-bg no-padding">
+        <ion-label  class="clear-bg  " style="color:white">
+            *
+   </ion-label>
+    <ion-input [(ngModel)]="user.confirmPassword" type="password" value="" class="input-color" placeholder="Confirm Password"></ion-input>
+    </ion-item>
+    
+    <!-- Tournament -->
+    <ion-item class="clear-bg no-padding">
+        <ion-label  class="clear-bg  " style="color:white">
+            *
+   </ion-label>
+    <ion-input [(ngModel)]="user.tournamentId"  value="" class="input-color" placeholder="Tournament Code"></ion-input>
+    </ion-item>
+
+    <!-- Team -->
+  
+  <ion-item class="clear-bg no-padding">
+    <ion-label class="clear-bg  " color="white" style=" font-size: 1.3rem;"> *&nbsp;&nbsp;&nbsp; &nbsp;Home Team
+         </ion-label>
+    <ion-select  [(ngModel)]="user.teamId" style="color: white;font-size: 1.3rem;" placeholder="Select ">
+      <ion-option value="1">DD</ion-option>
+      <ion-option value="2">RCB</ion-option>
+      <ion-option value="3">KKR</ion-option>
+      <ion-option value="4">MI</ion-option>
+      <ion-option value="5">KXP</ion-option>
+      <ion-option value="6">SRH</ion-option>
+      <ion-option value="7">GL</ion-option>
+      <ion-option value="8">RPL</ion-option>
+
+    </ion-select>
+  </ion-item>
+</ion-list>
+  
+
+
+<div padding>
+    <button ion-button color="buttonColor1" block (click)="register()" class="button-style">Sign up</button>
+</div>
+
+<ion-grid>
+    <ion-row>
+        <ion-col text-center>
+            <span color="yellow" class="font-small" (click)="loadLoginPage()">
+            back
+            </span>
+            
+        </ion-col>
+    </ion-row>
+    </ion-grid>
+
+</div>
+
+</ion-content>

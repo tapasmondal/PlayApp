@@ -1,0 +1,195 @@
+<ion-header>
+  <ion-navbar style="text-align: center;">
+    <button  ion-button menuToggle>
+      <ion-icon name="menu" color="white"></ion-icon>
+      <!--<img src="assets/img/Menu.png" height="28" width="24">-->
+    </button>
+     <ion-title text-center  showWhen="ios" >Admin </ion-title>
+    <ion-title text-center  showWhen="android"  style="margin-left: -63px;">Admin </ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content padding class="content-background">
+ 
+   <ion-list >
+    <ion-item class=" no-padding">
+           <ion-label style="padding-left: 10px">Date</ion-label>
+            <ion-datetime [(ngModel)]="scheduleDate" (ionChange)="fetchPersonGameScheduleList()"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+<!-- 2nd card -->
+<ion-card *ngFor="let personGameSchedule of personGameScheduleList" >
+  <ion-card-header class="card-header-md-Custome">
+  
+  <ion-grid>
+  <ion-row justify-content-center style="text-align: center; vertical-align: middle;font-size: 20px;">
+    <ion-col style="text-align: left">
+    
+      <ion-icon *ngIf="personGameSchedule.participated == false" name="notifications-outline" ></ion-icon>
+      <ion-icon *ngIf="personGameSchedule.participated == true" name="checkmark-circle-outline" ></ion-icon>
+
+    </ion-col>
+    <ion-col style="font-size: 15px;">
+             <span class="location">{{personGameSchedule.location}}</span>, 
+             <span class="schedule">{{personGameSchedule.schedule| date:' dd MMM yyyy H:mm a'}}</span>
+    </ion-col>
+    <ion-col style="text-align: right">
+    
+      <ion-icon *ngIf="personGameSchedule.lockStatus == true" name="lock" ></ion-icon>
+      <ion-icon *ngIf="personGameSchedule.lockStatus == false" name="unlock" ></ion-icon>
+     
+
+    </ion-col>
+  </ion-row>
+  
+</ion-grid>
+  
+  </ion-card-header>
+ <ion-card-content  *ngIf="personGameSchedule.status != 'SCH' " style="text-align: center;" >
+    
+    <ion-label>Match result is updated  ! </ion-label>
+
+  </ion-card-content>
+
+
+  <ion-card-content *ngIf="personGameSchedule.status == 'SCH' ">
+    
+  <ion-grid>
+  <ion-row center style="text-align: center;vertical-align: middle;font-size: 20px;">
+    <ion-col class="card-body-f1">
+      <!--<ion-badge item-right style="font-size:20px; margin-top: 10px"> {{personGameSchedule.gameTournamentSequenceNo}}</ion-badge>
+      -->
+      #{{personGameSchedule.gameTournamentSequenceNo}}
+    </ion-col>
+    <ion-col>
+      <!--<button ion-button color="rc" >{{personGameSchedule.teamATitle}}</button>-->
+       <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamAId == 1">
+            <img src="assets/img/dd.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamAId == 2">
+            <img src="assets/img/rc.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamAId == 3">
+            <img src="assets/img/kk.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamAId == 4">
+            <img src="assets/img/mi.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamAId == 5">
+            <img src="assets/img/kx.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamAId == 6">
+            <img src="assets/img/sh.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamAId == 7">
+            <img src="assets/img/gl.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamAId == 8">
+            <img src="assets/img/pu.png">
+          </ion-avatar>
+    </ion-col>
+     <ion-col>
+      <!--<button ion-button color="sh">{{personGameSchedule.teamBTitle}}</button>-->
+         <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamBId == 1">
+         <img src="assets/img/dd.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamBId == 2">
+            <img src="assets/img/rc.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamBId == 3">
+            <img src="assets/img/kk.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamBId == 4">
+            <img src="assets/img/mi.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamBId == 5">
+            <img src="assets/img/kx.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamBId == 6">
+            <img src="assets/img/sh.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamBId == 7">
+            <img src="assets/img/gl.png">
+          </ion-avatar>
+          <ion-avatar class="profilepicsize" item-right *ngIf="personGameSchedule.teamBId == 8">
+            <img src="assets/img/pu.png">
+          </ion-avatar>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+<ion-list>
+  <ion-item>
+    <ion-label>Lock Status </ion-label>
+    <ion-select [(ngModel)]="personGameSchedule.overlookLockSchedule">
+      <ion-option value="true">Lock</ion-option>
+      <ion-option value="false">Unlock</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item>
+    <ion-label>Delay Lock by ({{personGameSchedule.lockschedule| date:'dd-MM-yyyy H:mm a'}})</ion-label>
+    <ion-select [(ngModel)]="personGameSchedule.gameLockDelayedBy" ng-disabled="personGameSchedule.overlookLockSchedule">
+      <ion-option value="5">5 minutes</ion-option>
+      <ion-option value="10">10 minutes</ion-option>
+      <ion-option value="20">20 Minutes</ion-option>
+      <ion-option value="30">30 Minutes</ion-option>
+      <ion-option value="60">60 Minutes</ion-option>
+      <ion-option value="90">90 Minutes</ion-option>
+      <ion-option value="120">120 Minutes</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
+
+<ion-list>
+  <ion-item>
+    <ion-label>Game Status </ion-label>
+    <ion-select [(ngModel)]="personGameSchedule.gameStatusByAdmin">
+      <ion-option value="CAN">Cancel</ion-option>
+      <ion-option value="DRW">Draw</ion-option>
+      <ion-option value="COM">Played</ion-option>
+      <ion-option value="SCH">Scheduled</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
+<ion-list>
+  <ion-item>
+    <ion-label>Winner </ion-label>
+    <ion-select [(ngModel)]="personGameSchedule.winerId">
+      <ion-option value="{{personGameSchedule.teamAId}}">{{personGameSchedule.teamATitle}}</ion-option>
+      <ion-option value="{{personGameSchedule.teamBId}}">{{personGameSchedule.teamBTitle}}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
+<ion-grid>
+  <ion-row >
+    <ion-col style="text-align: center;vertical-align: middle;font-size: 10px;">
+      
+    </ion-col>
+    <ion-col>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+     <ion-col>
+      <button ion-button color="buttonColor1" class="button-style" block (click)="updateGameStatus(personGameSchedule.gameNo)" >Update</button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  </ion-card-content>
+</ion-card>
+
+
+
+</ion-content>
